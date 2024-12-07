@@ -3,6 +3,11 @@ const app = express();
 const PORT = 3000;
 const path = require("node:path");
 
+const links = [
+  { href: "/", text: "Home" },
+  { href: "new", text: "New Message" },
+];
+
 const messages = [
   {
     text: "Hi there!",
@@ -22,11 +27,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+  res.render("index", { title: "Mini Messageboard", links: links, messages: messages });
 });
 
 app.get("/new", (req, res) => {
-  res.render("form");
+  res.render("form", { links: links });
 });
 
 app.post("/new", (req, res) => {
