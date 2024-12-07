@@ -1,8 +1,13 @@
 <html>
-  <head>
-    <title>Mini Message Board</title>
-  </head>
   <body>
-    <%= message %>
+    <p>
+      <% for (let i = 0; i < messages.length; i++) { %>
+        <ul>
+          <li><%= messages[i].text %></li>
+          <li><%= messages[i].user %></li>
+          <li><%= messages[i].added %></li>
+        </ul>
+      <% } %>
+      </p>
   </body>
 </html>
