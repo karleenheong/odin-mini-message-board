@@ -1,6 +1,6 @@
 <html>
   <body>
-    <%= title %>
+    <h1><%= title %></h1>
     <%- include('navbar', {links: links}) %>
     <p>
       <% for (let i = 0; i < messages.length; i++) { %>
@@ -8,6 +8,7 @@
           <li><%= messages[i].text %></li>
           <li><%= messages[i].user %></li>
           <li><%= messages[i].added %></li>
+          <p><a href="/message/<%= messages[i].id %>" class="btn btn-primary" role="button">View Details</a></p> 
         </ul>
       <% } %>
       </p>
